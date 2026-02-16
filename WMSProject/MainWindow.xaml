@@ -16,5 +16,7 @@
         <TextBlock Text="{Binding AdoSzam}" />
         <Label>Ki nem adott szabadság:</Label>
         <TextBlock Text="{Binding KiNemAdottSzabadsag}" />
+        <Label>Éves fizetés:</Label>
+        <TextBlock Text="{Binding EvesFizetes}"/>
     </StackPanel>
 </Window>
