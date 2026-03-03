@@ -5,18 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WMSProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Background="LightGray">
     <Window.DataContext>
         <local:EmployeeViewModel />
     </Window.DataContext>
-    <StackPanel Orientation="Vertical">
-        <Label>Név:</Label>
-        <TextBlock Text="{Binding Name}" />
-        <Label>Adószám:</Label>
-        <TextBlock Text="{Binding AdoSzam}" />
-        <Label>Ki nem adott szabadság:</Label>
-        <TextBlock Text="{Binding KiNemAdottSzabadsag}" />
-        <Label>Éves fizetés:</Label>
-        <TextBlock Text="{Binding EvesFizetes}"/>
-    </StackPanel>
+
+    <Grid>
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="White"
+                BorderBrush="DarkGray"
+                BorderThickness="2"
+                CornerRadius="8"
+                Padding="50"
+                MaxWidth="500">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Label HorizontalAlignment="Left">Heti futár kereset:</Label>
+                <TextBlock Text="{Binding HetiFutarFizetes}" HorizontalAlignment="Left"/>
+                <Label HorizontalAlignment="Right">Ösztöndíj havonta:</Label>
+                <TextBlock Text="{Binding Osztondij}"/>
+                <Label FontSize="20" FontStyle="Italic" HorizontalAlignment="Center">Éves fizetés:</Label>
+                <TextBlock FontWeight="Bold" Text="{Binding EvesFizetes}" FontSize="24" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Window>
