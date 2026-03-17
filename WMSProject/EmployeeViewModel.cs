@@ -1,16 +1,30 @@
-﻿namespace WMSProject
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+
+namespace WMSProject
 {
-    public class EmployeeViewModel
+    public partial class EmployeeViewModel : ObservableObject
     {
-        /// <summary>
-        /// Éves fizetés kiszámítása
-        /// </summary>
+        // INPUTOK
+        [ObservableProperty]
+        private int hetiFutarFizetesInput;
 
-        public int HetiFutarFizetes { get; } = 15000;
+        [ObservableProperty]
+        private int osztondijInput;
 
-        public int Osztondij { get; } = 42000;
+        // EREDMÉNY
+        private int evesFizetes;
+        public int EvesFizetes
+        {
+            get => evesFizetes;
+            set => SetProperty(ref evesFizetes, value);
+        }
 
-        public int EvesFizetes => ((HetiFutarFizetes * 4) + Osztondij) * 12;
-
+        // GOMB PARANCS
+        [RelayCommand]
+        private void Calculate()
+        {
+            EvesFizetes = ((HetiFutarFizetesInput * 4) + OsztondijInput) * 12;
+        }
     }
 }
